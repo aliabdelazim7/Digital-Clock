@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Digital Clock</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-clock"></i> Smart Clock</h1>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </header>
+
+        <div class="main-clock">
+            <div class="clock-face">
+                <div class="time-display">
+                    <div id="time">00:00:00</div>
+                    <div id="am-pm">AM</div>
+                </div>
+                <div id="date">January 1, 1970</div>
+                <div class="timezone-info">
+                    <span id="timezone">Local Time</span>
+                    <span id="day-of-year">Day 1 of 365</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="timezone-selector">
+                <label for="timezone-select">Timezone:</label>
+                <select id="timezone-select">
+                    <option value="local">Local Time</option>
+                    <option value="UTC">UTC</option>
+                    <option value="America/New_York">New York</option>
+                    <option value="Europe/London">London</option>
+                    <option value="Asia/Tokyo">Tokyo</option>
+                    <option value="Australia/Sydney">Sydney</option>
+                </select>
+            </div>
+            
+            <div class="format-toggle">
+                <button id="12hr" class="active">12-Hour</button>
+                <button id="24hr">24-Hour</button>
+            </div>
+        </div>
+
+        <div class="additional-features">
+            <div class="feature-tabs">
+                <button class="tab-btn active" data-tab="stopwatch">
+                    <i class="fas fa-stopwatch"></i> Stopwatch
+                </button>
+                <button class="tab-btn" data-tab="timer">
+                    <i class="fas fa-hourglass-half"></i> Timer
+                </button>
+                <button class="tab-btn" data-tab="world-clock">
+                    <i class="fas fa-globe"></i> World Clock
+                </button>
+            </div>
+
+            <div class="tab-content">
+                <!-- Stopwatch Tab -->
+                <div id="stopwatch" class="tab-pane active">
+                    <div class="stopwatch-display">
+                        <span id="sw-hours">00</span>:<span id="sw-minutes">00</span>:<span id="sw-seconds">00</span>.<span id="sw-milliseconds">000</span>
+                    </div>
+                    <div class="stopwatch-controls">
+                        <button id="sw-start" class="btn primary"><i class="fas fa-play"></i> Start</button>
+                        <button id="sw-pause" class="btn secondary" disabled><i class="fas fa-pause"></i> Pause</button>
+                        <button id="sw-reset" class="btn danger"><i class="fas fa-redo"></i> Reset</button>
+                        <button id="sw-lap" class="btn info" disabled><i class="fas fa-flag"></i> Lap</button>
+                    </div>
+                    <div class="lap-times">
+                        <h4>Lap Times</h4>
+                        <div id="lap-list"></div>
+                    </div>
+                </div>
+
+                <!-- Timer Tab -->
+                <div id="timer" class="tab-pane">
+                    <div class="timer-input">
+                        <div class="time-input-group">
+                            <input type="number" id="timer-hours" min="0" max="23" value="0" placeholder="0">
+                            <label>Hours</label>
+                        </div>
+                        <div class="time-input-group">
+                            <input type="number" id="timer-minutes" min="0" max="59" value="0" placeholder="0">
+                            <label>Minutes</label>
+                        </div>
+                        <div class="time-input-group">
+                            <input type="number" id="timer-seconds" min="0" max="59" value="0" placeholder="0">
+                            <label>Seconds</label>
+                        </div>
+                    </div>
+                    <div class="timer-display">
+                        <span id="timer-display">00:00:00</span>
+                    </div>
+                    <div class="timer-controls">
+                        <button id="timer-start" class="btn primary"><i class="fas fa-play"></i> Start</button>
+                        <button id="timer-pause" class="btn secondary" disabled><i class="fas fa-pause"></i> Pause</button>
+                        <button id="timer-reset" class="btn danger"><i class="fas fa-redo"></i> Reset</button>
+                    </div>
+                </div>
+
+                <!-- World Clock Tab -->
+                <div id="world-clock" class="tab-pane">
+                    <div class="world-clocks">
+                        <div class="world-clock-item">
+                            <div class="city">New York</div>
+                            <div class="time" id="ny-time">--:--:--</div>
+                            <div class="date" id="ny-date">--</div>
+                        </div>
+                        <div class="world-clock-item">
+                            <div class="city">London</div>
+                            <div class="time" id="london-time">--:--:--</div>
+                            <div class="date" id="london-date">--</div>
+                        </div>
+                        <div class="world-clock-item">
+                            <div class="city">Tokyo</div>
+                            <div class="time" id="tokyo-time">--:--:--</div>
+                            <div class="date" id="tokyo-date">--</div>
+                        </div>
+                        <div class="world-clock-item">
+                            <div class="city">Sydney</div>
+                            <div class="time" id="sydney-time">--:--:--</div>
+                            <div class="date" id="sydney-date">--</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
